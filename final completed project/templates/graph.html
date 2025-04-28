@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankruptcy Model Graphs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('graph') }}">Graph</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('predict') }}">Predict</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Bankruptcy ML Model Graphs</h1>
+        <h2>Confusion Matrix</h2>
+        <img src="{{ url_for('static', filename='images/confusion_matrix.png') }}" alt="Confusion Matrix">
+
+        <h2>Precision-Recall Curve</h2>
+        <img src="{{ url_for('static', filename='images/precision_recall_curve.png') }}" alt="Precision-Recall Curve">
+
+        <h2>ROC Curve</h2>
+        <img src="{{ url_for('static', filename='images/roc_curve.png') }}" alt="ROC Curve">
+
+        <h2>Feature Importance</h2>
+        <img src="{{ url_for('static', filename='images/feature_importance.png') }}" alt="Feature Importance">
+    </div>
+</body>
+
+</html>

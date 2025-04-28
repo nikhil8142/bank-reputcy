@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Bankruptcy Portal</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: flex-end; /* Moves container to right */
+            align-items: center;
+            height: 100vh;
+            background: url('static/img/WhatsApp%20Image%202025-03-05%20at%2012.04.10_43304891.jpg') no-repeat center center/cover;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding-right: 10vw; /* Adjusts distance from right edge */
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            width: 350px;
+            backdrop-filter: blur(15px);
+        }
+        h1 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            color: #222;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            border-radius: 6px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input::placeholder {
+            color: #666;
+            font-weight: normal;
+        }
+        .btn {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s;
+            width: 100%;
+            margin-top: 12px;
+        }
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 1);
+            transform: scale(1.05);
+        }
+        p {
+            margin-top: 15px;
+            color: black;
+            font-size: 14px;
+        }
+        a {
+            color: blue;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .forgot-password {
+            display: block;
+            margin-top: 10px;
+            color: red;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+     <form action="{{ url_for('login') }}" method="POST">
+    <h1>Login</h1>
+    
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+    <a href="{{ url_for('forgot_password') }}" class="forgot-password">Forgot Password?</a>
+
+    <button class="btn" type="submit">Login</button>
+
+    <p>Don't have an account? <a href="{{ url_for('register') }}">Register Here</a></p>
+</form>
+
+</body>
+</html>

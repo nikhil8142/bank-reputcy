@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankruptcy Eligibility Check</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Corporate Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+        background: #002147;
+        padding: 10px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 0; /* No extra spacing */
+        }
+
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background: #1b3b6f;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 350px; /* Reduced height */
+            background: url("{{ url_for('static', filename='img/bankruptcy-hero.jpg') }}") no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 22px; /* Slightly reduced font */
+            font-weight: bold;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            padding-top: 20px; /* Adjusted text position */
+        }
+
+        /* Image Slider */
+        .slider {
+            position: relative;
+            max-width: 80%;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .slides img {
+            width: 100%;
+            display: none;
+        }
+
+        .slides img:first-child {
+            display: block;
+        }
+
+        /* Section Styling */
+        /* Main Content */
+     .container {
+         text-align: center;
+        padding-top: 10px; /* Reduced padding */
+     }
+
+        
+/* Header Section */
+        h1 {
+        font-size: 26px;
+        text-align: center;
+        color: #002147;
+        font-weight: bold;
+        margin-top: 10px; /* Reduced top margin */
+     }
+        h2 {
+            font-size: 24px;
+            color: #444;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #002147;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#" class="logo">Bankruptcy Portal</a>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Check Your Bankruptcy Eligibility Today</h1>
+    </div>
+
+    <!-- Image Slider -->
+    <div class="slider">
+        <div class="slides">
+            <img src="{{ url_for('static', filename='img/bankruptcy1.jpeg') }}" alt="Bankruptcy Image 1">
+            <img src="{{ url_for('static', filename='img/bankruptcy2.jpeg') }}" alt="Bankruptcy Image 2">
+            <img src="{{ url_for('static', filename='img/bankruptcy3.jpeg') }}" alt="Bankruptcy Image 3">
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+        <h1>Bankruptcy Eligibility Check</h1>
+
+        <h2>What is Bankruptcy?</h2>
+        <p>
+            Bankruptcy is a legal proceeding involving a person or business that is unable to repay their outstanding
+            debts.
+            It provides a fresh financial start for individuals and companies by either eliminating debts or restructuring
+            them under the protection of the court.
+        </p>
+
+        <h2>What is the Use of Bankruptcy?</h2>
+        <p>
+            Bankruptcy helps individuals and businesses who are overwhelmed by debt. It provides financial relief by stopping
+            collection actions, wage garnishments, and legal judgments. Additionally, it can help in reorganizing debts so that
+            they are more manageable. However, it also impacts credit scores and financial credibility, so it should be
+            considered carefully.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Bankruptcy Portal | All Rights Reserved
+    </footer>
+
+    <!-- Slider Script -->
+    <script>
+        $(document).ready(function () {
+            let index = 0;
+            function changeSlide() {
+                let slides = $('.slides img');
+                slides.eq(index).fadeOut(1000);
+                index = (index + 1) % slides.length;
+                slides.eq(index).fadeIn(1000);
+            }
+            setInterval(changeSlide, 3000);
+        });
+    </script>
+
+</body>
+
+</html>
